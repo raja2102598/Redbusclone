@@ -1,0 +1,62 @@
+
+.body{
+    background-color: #d84f57;
+}
+.header{
+    width: 100%;
+    /* background-color:#d84f57; */
+}
+
+th{
+    height: 60px;
+    color: grey;
+}
+
+.tableheader{
+    width: 100%;
+}
+.navi{
+    padding-right: 20px;
+    color:whitesmoke;
+}
+hr{
+    height: 1px;
+    border: none;
+    background-color:salmon;
+}
+.container-fluid{
+    /* padding: 120px; */
+    height: 450px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: round;
+    width: 100%;
+}
+.search-tab{
+    display: flex;
+    align-content: center;
+    padding: 260px;
+}
+.img{
+     padding: 25px;
+}
+.center{
+    text-align: center;    
+}
+.offers{
+    display: flex;
+    align-content: center;
+    padding-left: 120px;
+}
+.img1{
+    display: flex;
+    padding-left: 45%;
+    padding-bottom: 4%;
+}
+.mypromise th{
+ 
+    padding-top: 20px;
+}
+.bordergray{
+    border-right: 2px solid gray;
+}
