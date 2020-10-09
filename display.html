@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Buses</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="./css/bootstrap_4.5.2.css">
+        <link rel="stylesheet" href="./css/displayc.css">
+        <!-- styles -->
+
+    </head>
+
+    <body>
+        <div class="container col-md-12">
+            <h2>Search Results</h2>
+            <p>Your Search</p>
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>From - <span id="from" class="text-info"></span></th>
+                        <th>To - <span id="to" class="text-info"></span></th>
+                        <th>Date - <span id="date" class="text-info"></span></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="jumbotron text-center bg-transparent">
+            <h3 class="text-danger">No Results</h3>
+        </div>
+        <!-- scripts -->
+        <script src="./js/jquery3.5.js"></script>
+        <script>
+            var from = localStorage.getItem("fromPlace");
+            var to = localStorage.getItem("toPlace");
+            var date = localStorage.getItem("Date");
+            $('#from').text(from).show();
+            $('#to').text(to).show();
+            $('#date').text(date).show();
+            $(window).one("focus", function () {
+                localStorage.clear();
+                window.location.href = "./index.html";
+            });
+        </script>
+        <!-- scripts -->
+    </body>
+
+</html>

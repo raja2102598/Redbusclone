@@ -8,9 +8,16 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/bootstrap_4.5.2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- styles -->
+
+    <!-- scripts -->
+
+    <script src="./js/jquery3.5.js"></script>
+
+
+    <!-- scripts -->
 
 </head>
 <body class="body">
@@ -52,9 +59,9 @@
 
    <div class="container-fluid" style="background-image: url('./assets/img/bodyimg.png');">
     <div class="search-tab">
-    <form action="" class="form-inline">
+    <form action="display.html" class="form-inline" id="bus">
         <div class="form-group mx-sm-3">
-            <input type="text" name="from" class="form-control" id="" placeholder="FROM">
+            <input type="text" name="from" class="form-control" id="from" placeholder="FROM">
         </div>
         <div class="form-group mx-sm-3">
             <input type="text" name="to" class="form-control" id="to" placeholder="TO">
@@ -73,6 +80,18 @@
     </div>
     </div> 
 
+    <script type="text/javascript">
+        $('#bus').submit(function (event) {
+            // event.preventDefault();
+            var from = $('#from').val();
+            var to = $('#to').val();
+            var date = $('#date').val();
+            // console.log(from + "-" + to + "-" + date);
+            localStorage.setItem("fromPlace", from);
+            localStorage.setItem("toPlace", to);
+            localStorage.setItem("Date", date);
+        });
+    </script>
    <!-- search section end -->
 
 
