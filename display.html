@@ -32,16 +32,22 @@
         <!-- scripts -->
         <script src="./js/jquery3.5.js"></script>
         <script>
-            var from = localStorage.getItem("fromPlace");
-            var to = localStorage.getItem("toPlace");
-            var date = localStorage.getItem("Date");
+            // var from = localStorage.getItem("fromPlace");
+            // var to = localStorage.getItem("toPlace");
+            // var date = localStorage.getItem("Date");
             $('#from').text(from).show();
             $('#to').text(to).show();
             $('#date').text(date).show();
-            $(window).one("focus", function () {
-                localStorage.clear();
-                window.location.href = "./index.html";
-            });
+                // $(window).one("focus", function () {
+                //     localStorage.clear();
+                //     window.location.href = "./index.html";
+                // });
+                // var test = {};
+                // test['from'] = from;
+                // test['to'] = to;
+                // test['date'] = date;
+                // console.log(test);
+                // alert(JSON.stringify(test, null, 2));
         </script>
         <!-- scripts -->
     </body>
