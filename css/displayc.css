@@ -1,0 +1,14 @@
+th {
+    color: black;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+h2,
+p {
+    text-align: center;
+    padding-bottom: 15px;
+}

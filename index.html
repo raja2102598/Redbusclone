@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Bus</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/bootstrap_4.5.2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- styles -->
+
+    <!-- scripts -->
+
+    <script src="./js/jquery3.5.js"></script>
+
+
+    <!-- scripts -->
+
+</head>
+<body class="body">
+<!-- header section -->
+    <div class="header">
+        <table class="tableheader">
+            <tr>
+                <td width="10%">         
+                        <img src="./assets/img/header-logo.png" alt="" width="40%" height="20%">
+                </td>
+                <td>
+                    <table>
+                        <tr> 
+                            <td class="navi">BUS TICKETS</td>
+                            <td class="navi">rPool <sup>New</sup>
+                            </td>
+                            <td class="navi">BUS HIRE</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table align="right">
+                        <tr> 
+                            <td class="navi">Help</td>
+                            <td class="navi">Manage Booking  <i class="fa fa-caret-down" style="font-size: 15px;"></i>
+                            </td>
+                            <td class="navi"><i class="fa fa-user-circle fa-2x"></i> <i class="fa fa-caret-down" style="font-size: 25px;"></i> </td>
+                        </tr>
+                    </table>
+                </td>     
+            </tr>
+    </table> 
+    <hr>       
+</div>
+<!-- header section end -->
+
+
+<!-- search section start -->
+
+   <div class="container-fluid" style="background-image: url('./assets/img/bodyimg.png');">
+    <div class="search-tab">
+    <form action="display.html" class="form-inline" id="bus">
+    <div class="row">
+        <div class="form-group mx-sm-3">
+            <input type="text" name="from" class="form-control" id="from" placeholder="FROM">
+        </div>
+        <div class="form-group mx-sm-3">
+            <input type="text" name="to" class="form-control" id="to" placeholder="TO">
+        </div>
+        <div class="form-group mx-sm-3">
+            <input type="date" name="date" class="form-control" id="date">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-dark text-white" type="submit">
+                Find Buses
+            </button>    
+        </div>
+    </div>
+    <!-- <div class="row" style="padding-top: 30px;">
+        <div class="form-group" style="padding-left: 14px;">
+            <textarea type="text" name="from-details" class="form-control" id="from-details" placeholder="Details" cols="23"
+                rows="3"></textarea>
+        </div>
+        <div class="form-group mx-sm-3" style="padding-left: 11px;">
+            <textarea type="text" name="to-details" class="form-control" cols="23" id="to-details" placeholder="Details"
+                rows="3"></textarea>
+        </div>
+        <div class="form-group mx-sm-3" style="padding-left: 1px;">
+            <textarea type="text" name="date-details" cols="20" rows="3" class="form-control" id="date-details"
+                placeholder="details"></textarea>
+        </div>
+    </div> -->
+    </form>    
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        $('#bus').submit(function (event) {
+            event.preventDefault();
+            
+            var from = $('#from').val();
+            var to = $('#to').val();
+            var date = $('#date').val();
+            
+            // var from_detail = $('#from-details').val();
+            // var to_detail = $('#to-details').val();
+            // var date_detail = $('#date-details').val();
+            // var search = {};
+            // var details_from = {};
+            // var details_to = {};
+            // var details_date = {};
+
+            // details_from['from-name'] = from;
+            // details_from['from-details'] = from_detail;
+            // search['from'] = details_from;
+
+            // details_to['to-name'] = to;
+            // details_to['to-details'] = to_detail;
+            // search['to'] = details_to;
+
+            // details_date['date-name'] = date;
+            // details_date['date-details'] = date_detail;
+            // search['date'] = details_date;
+
+
+            var success ={
+                'status' : 'Success',
+                'message': 'Details Sent Successfully',
+
+            }
+            var fail ={
+                'status' : 'Failure',
+                'message': 'Enter Valid Details',
+
+            }
+            if (from !=''&&to!=''&&date!='') {
+                $('#Tfrom').html(from);
+                $('#Tto').html(to);
+                $('#Tdate').html(date);
+                
+                alert(JSON.stringify(success,null,3));
+            }
+            else
+            {
+                alert(JSON.stringify(fail,null,3));
+            }
+            
+            
+            // alert(JSON.stringify(search, null, 3));
+             // console.log(from + "-" + to + "-" + date);
+            // localStorage.setItem("fromPlace", from);
+            // localStorage.setItem("toPlace", to);
+            // localStorage.setItem("Date", date);
+        });
+    </script>
+   <!-- search section end -->
+
+
+   <!-- offer section start -->
+
+   <hr>
+   <!-- table -->
+   <div class="container">
+    <table class="table table-dark">
+        <thead>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+        </thead>   
+        <tbody>
+               <tr>
+                   <td id="Tfrom" ></td>
+                   <td id="Tto"></td>
+                   <td id="Tdate"></td>
+               </tr>
+           </tbody>
+       </table>
+   </div>
+   <!-- table -->
+  
+   <div class="offers">
+     <div class="container" style="height: 400px;">
+         <div class="row">
+             <div class="col sm-6">
+                 <div class="card sm-6" style="width: 25rem;">
+                     <div class="card-body">
+                         <h6 class="card-title center">Save up to Rs 150 on bus ticket</h6>
+                         <img src="./assets/img/amazon.png" alt="" class="img">
+                         <p class="card-text center">Use Code FIRST</p>
+                     </div>
+                 </div>
+             </div>
+             <div class="col sm-6">
+                <div class="card sm-6" style="width: 25rem;">
+                    <div class="card-body">
+                        <h6 class="card-title center">Pay using Amazon Pay</h6>
+                        <img src="./assets/img/amazon1.png" alt="" class="img">
+                        <p class="card-text center">Win Rs 10 to Rs 300</p>
+                    </div>
+                </div>
+            </div>
+            
+         </div>
+     </div>  
+   </div>
+
+
+   <!-- offer section end -->
+
+
+   <!-- image section start -->
+   <hr>
+   <div class="container-fluid" style="height: 320px;">
+       <div class="jumbotron">
+        <div class="img1">
+            <img src="./assets/img/promise.png" alt="">
+        </div>   
+           <h1 class="display-6 center"><b>WE PROMISE TO DELIVER</b></h1>
+        </div>
+        </div>
+        <div class="conatiner" style="height: 450px;"> 
+            <table class="text-white center mypromise" style="height: 370px;background-color: white;width: 80%;margin-left: auto;margin-right: auto;border: 2px solid gray;">
+                <tr>
+                    <div>
+                        <th class="bordergray" style="width: 20%;"><img src="./assets/img/safety.svg" alt="" ></th>
+                        <th class="bordergray" style="width: 20%;"><img src="./assets/img/customer_care.png" alt=""></th>
+                        <th class="bordergray" style="width: 20%;"> <img src="./assets/img/lowest_Fare.png" alt="" ></th>
+                        <th class="bordergray" style="width: 20%;"><img src="./assets/img/benefits.png" alt="" ></th>
+                    </div>
+                </tr>
+                <tr>
+                    <th class="bordergray"><b>SAFETY+</b></th>
+                    <th class="bordergray"><b>SUPERIOR CUSTOMER SERVICE</b></th>
+                    <th class="bordergray"><b>LOWEST PRICES</b></th>
+                    <th class="bordergray"><b>UNMATCHED BENEFITS</b></th>
+                </tr>
+                <tr style="color: gray;">
+                    <td class="bordergray" style="padding: 20px;word-spacing: 2px;">With Safety+ we have brought in a set of measures like Sanitized buses, mandatory masks etc. to ensure you travel safely.</td>
+                    <td class="bordergray" style="padding: 20px;word-spacing: 2px;">We put our experience and relationships to good use and are available to solve your travel issues.</td>
+                    <td class="bordergray" style="padding: 20px;word-spacing: 2px;">We always give you the lowest price with the best partner offers and experience our best travel services.</td>
+                    <td class="bordergray" style="padding: 20px;word-spacing: 2px;">We take care of your travel beyond ticketing by providing you with innovative and unique benefits.</td>
+                </tr>
+            </table>
+        </div>
+        
+
+
+<!-- image section end -->
+
+<!-- footer section start -->
+
+<div style="height: 275px;padding-bottom: 25px;background-color:#E5E5E5 ;">
+    <table class="text-dark" style="height: 220px;background-color:#E5E5E5;width: 100%;">
+        <tr>
+            <th style="width: 20%; padding-left: 40px;">Top Bus Routes</th>
+            <th style="width: 20%;">Top Cities</th>
+            <th style="width: 20%;">Top RTC's</th>
+            <th style="width: 20%;">Other</th>
+            <th style="width: 20%;">Tempo Traveller in Cities</th>            
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Hyderabad to Bangalore Bus</td>
+            <td>Hyderabad Bus Tickets</td>
+            <td>APSRTC</td>
+            <td>GSRTC</td>
+            <td>Tempo traveller in Bangalore</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Bangalore to Chennai Bus</td>
+            <td> Bangalore Bus Tickets
+            </td>
+            <td>MSRTC</td>
+            <td>RSRTC</td>
+            <td>Tempo traveller in Chennai</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Pune to Bangalore Bus
+            </td>
+            <td>Chennai Bus Tickets</td>
+            <td>HRTC</td>
+            <td>KTCL</td>
+            <td>Tempo traveller in Mumbai</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Mumbai to Bangalore Bus
+            </td>
+            <td>Pune Bus Tickets</td>
+            <td>UPSRTC</td>
+            <td>PEPSU</td>
+            <td>Tempo traveller in Hyderabad</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">More ></td>
+            <td>More ></td>
+            <td>More ></td>
+            <td>More ></td>
+            <td>Tempo traveller in Ahmedabad</td>
+        </tr>
+    </table>
+    </div>
+</div>
+<div style="height: 300px;">
+    <table class="text-white" style="height: 300px;background-color:#1B2330;width: 100%;">
+        <tr>
+            <th style="width: 18%; padding-left: 40px;">About Bluebus</th>
+            <th style="width: 18%;">Info</th>
+            <th style="width: 18%;">Global Sites</th>
+            <th style="width: 18%;">Our Partners</th>
+            <th style="width: 28%;"><img src="./assets/img/footer_logo.png" alt="">
+            </th>            
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">About us</td>
+            <td>T & C</td>
+            <td>India</td>
+            <td>Goibibo</td>
+            <td rowspan="6" width="20%">
+                <span>
+                    redBus is the world's largest online bus ticket booking service trusted by over 18 million happy 
+                    customers globally. redBus offers bus ticket booking through its website,iOS and Android mobile apps for 
+                    all major routes.
+                </span>
+                <br>
+                <br>
+                <i class="fa fa-facebook fa-2x" aria-hidden="true" style="padding-right: 20px;" ></i>
+                <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Contact Us</td>
+            <td>Privacy Poilcy</td>
+            <td>Singapore</td>
+            <td>MakeMyTrip</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Mobile Version</td>
+            <td>FAQ</td>
+            <td>Malaysia</td>
+            <td> </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Redbus on Mobile</td>
+            <td>Blog</td>
+            <td>Indonesia</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Site Map</td>
+            <td>Agent Registration</td>
+            <td>Peru</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Offers</td>
+            <td>Insurance Partner</td>
+            <td>Columbia</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Carrers</td>
+            <td>User Agreement</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="padding-left: 40px;">Values</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Ⓒ 2020 ibibogroup All rights reserved</td>
+        </tr>
+        
+            
+    </table>
+</div>
+
+
+<!-- footer section end -->
+</body>
+</html>
