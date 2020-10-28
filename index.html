@@ -96,7 +96,7 @@
 
     <script type="text/javascript">
         $('#bus').submit(function (event) {
-            event.preventDefault();
+            // event.preventDefault();
             
             var from = $('#from').val();
             var to = $('#to').val();
@@ -123,34 +123,34 @@
             // search['date'] = details_date;
 
 
-            var success ={
-                'status' : 'Success',
-                'message': 'Details Sent Successfully',
+            // var success ={
+            //     'status' : 'Success',
+            //     'message': 'Details Sent Successfully',
 
-            }
-            var fail ={
-                'status' : 'Failure',
-                'message': 'Enter Valid Details',
+            // }
+            // var fail ={
+            //     'status' : 'Failure',
+            //     'message': 'Enter Valid Details',
 
-            }
-            if (from !=''&&to!=''&&date!='') {
-                $('#Tfrom').html(from);
-                $('#Tto').html(to);
-                $('#Tdate').html(date);
+            // }
+            // if (from !=''&&to!=''&&date!='') {
+            //     $('#Tfrom').html(from);
+            //     $('#Tto').html(to);
+            //     $('#Tdate').html(date);
                 
-                alert(JSON.stringify(success,null,3));
-            }
-            else
-            {
-                alert(JSON.stringify(fail,null,3));
-            }
+            //     // alert(JSON.stringify(success,null,3));
+            // }
+            // else
+            // {
+            //     alert(JSON.stringify(fail,null,3));
+            // }
             
             
             // alert(JSON.stringify(search, null, 3));
              // console.log(from + "-" + to + "-" + date);
-            // localStorage.setItem("fromPlace", from);
-            // localStorage.setItem("toPlace", to);
-            // localStorage.setItem("Date", date);
+            localStorage.setItem("fromPlace", from);
+            localStorage.setItem("toPlace", to);
+            localStorage.setItem("Date", date);
         });
     </script>
    <!-- search section end -->
@@ -160,7 +160,7 @@
 
    <hr>
    <!-- table -->
-   <div class="container">
+   <!-- <div class="container">
     <table class="table table-dark">
         <thead>
             <th>From</th>
@@ -175,7 +175,7 @@
                </tr>
            </tbody>
        </table>
-   </div>
+   </div> -->
    <!-- table -->
   
    <div class="offers">

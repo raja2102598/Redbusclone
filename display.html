@@ -27,27 +27,86 @@
             </table>
         </div>
         <div class="jumbotron text-center bg-transparent">
-            <h3 class="text-danger">No Results</h3>
+            <table class="table  text-center table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Travels Name <span id="from" class="text-info"></span></th>
+                        <th>Departure <span id="to" class="text-info"></span></th>
+                        <th>Arrival <span id="date" class="text-info"></span></th>
+                        <th>Price <span id="date" class="text-info"></span></th>
+                        <th>Book Tickets<span id="date" class="text-info"></span></th>
+                    </tr>
+                </thead>
+                <tbody id="jsondisplay">
+
+                </tbody>
+            </table>
         </div>
         <!-- scripts -->
         <script src="./js/jquery3.5.js"></script>
         <script>
-            // var from = localStorage.getItem("fromPlace");
-            // var to = localStorage.getItem("toPlace");
-            // var date = localStorage.getItem("Date");
+            var from = localStorage.getItem("fromPlace");
+            var to = localStorage.getItem("toPlace");
+            var date = localStorage.getItem("Date");
             $('#from').text(from).show();
             $('#to').text(to).show();
             $('#date').text(date).show();
-                // $(window).one("focus", function () {
-                //     localStorage.clear();
-                //     window.location.href = "./index.html";
-                // });
+            // $(window).one("focus", function () {
+            //     localStorage.clear();
+            //     window.location.href = "./index.html";
+            // });
                 // var test = {};
                 // test['from'] = from;
                 // test['to'] = to;
                 // test['date'] = date;
                 // console.log(test);
                 // alert(JSON.stringify(test, null, 2));
+
+
+                var details={
+                    "buses" :[
+                        {
+                            "name" : "ABC Travels",
+                            "s_time":"22.00",
+                            "e_time":"5.30",
+                            "price":"INR 1400"
+                        },
+                        {
+                            "name" : "YB Travels",
+                            "s_time":"22.45",
+                            "e_time":"4.30",
+                            "price":"INR 1300"
+                        },{
+                            "name" : "AC Travels",
+                            "s_time":"19.15",
+                            "e_time":"2.30",
+                            "price":"INR 1800"
+                        },{
+                            "name" : "FA Travels",
+                            "s_time":"21.00",
+                            "e_time":"4.30",
+                            "price":"INR 2000"
+                        },
+                        {
+                            "name" : "MA Travels",
+                            "s_time":"17.00",
+                            "e_time":"1.30",
+                            "price":"INR 1100"
+                        }
+                    ]
+                };
+            var detailsJson = details.buses;
+            var tbl="";
+            $(detailsJson).each(function (i,bus) {
+               tbl=tbl+"<tr>";
+               tbl=tbl+"<td>"+bus.name+"</td>";
+               tbl=tbl+"<td>"+bus.s_time+"</td>"; 
+               tbl=tbl+"<td>"+bus.e_time+"</td>"; 
+               tbl=tbl+"<td>"+bus.price+"</td>";
+               tbl=tbl+"<td> <button class='btn btn-primary' type='button'>Book</button></td>";
+               tbl=tbl+"</tr>";
+            })
+            $("#jsondisplay").html(tbl);
         </script>
         <!-- scripts -->
     </body>
